@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.Random;
 
 public class App {
@@ -43,14 +42,23 @@ public class App {
 
         BubbleSort<Integer> bolha = new BubbleSort<>();
 
-        Integer[] vetorOrdenadoBolha = bolha.ordenar(vetor);
+        bolha.ordenar(vetor);
 
-        System.out.println("\nVetor ordenado método Bolha:");
+        System.out.println("\nVetor ordenado método Bolha:");   
         System.out.println("Comparações: " + bolha.getComparacoes());
         System.out.println("Movimentações: " + bolha.getMovimentacoes());
         System.out.println("Tempo de ordenação (ms): " + bolha.getTempoOrdenacao());
 
-        /* TO DO
+        InsertionSort<Integer> insercao = new InsertionSort<>();
+
+        insercao.ordenar(vetor);
+
+        System.out.println("\nVetor ordenado método Inserção:");
+        System.out.println("Comparações: " + insercao.getComparacoes());
+        System.out.println("Movimentações: " + insercao.getMovimentacoes());
+        System.out.println("Tempo de ordenação (ms): " + insercao.getTempoOrdenacao());
+
+        /* TODO
         *Fazer a implementacao do restante do main para a ordenacao 
         *  com os algoritmos InsertionSort e SelectionSort
         */

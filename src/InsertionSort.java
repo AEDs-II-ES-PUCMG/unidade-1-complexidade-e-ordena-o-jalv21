@@ -1,20 +1,20 @@
 import java.util.Arrays;
 
 public class InsertionSort<T extends Comparable<T>> implements IOrdenador<T> {
-    private int comparacoes;
-    private int movimentacoes;
+    private long comparacoes;
+    private long movimentacoes;
     private double tempoOrdenacao;
     private double inicio;
 
     private double nanoToMilli = 1.0/1_000_000;
 
     @Override
-    public int getComparacoes() {
+    public long getComparacoes() {
         return comparacoes;
     }
 
     @Override
-    public int getMovimentacoes() {
+    public long getMovimentacoes() {
         return movimentacoes;
     }
 
@@ -33,12 +33,12 @@ public class InsertionSort<T extends Comparable<T>> implements IOrdenador<T> {
         this.tempoOrdenacao = (System.nanoTime() - this.inicio) * nanoToMilli;
     }
 
-    private void swap(int x, int y, T[] vetor) {
+    /* private void swap(int x, int y, T[] vetor) {
         T temp = vetor[x];
         vetor[x] = vetor[y];
         vetor[y] = temp;
         movimentacoes+=3;
-    }
+    } */
 
     @Override
     public T[] ordenar(T[] dados) {
