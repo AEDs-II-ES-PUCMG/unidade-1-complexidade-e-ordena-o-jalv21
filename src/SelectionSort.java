@@ -55,6 +55,7 @@ public class SelectionSort<T extends Comparable<T>> implements IOrdenador<T> {
             this.movimentacoes++;  
             swap(menor, i, dadosOrdenados);
         }
+        terminar();
         return dadosOrdenados;
     }
 
