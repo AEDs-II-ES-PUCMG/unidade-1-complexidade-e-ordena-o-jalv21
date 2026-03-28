@@ -1,4 +1,6 @@
 import java.util.Random;
+import java.util.Scanner;
+import java.util.function.Supplier;
 
 public class App {
     static final int[] tamanhosTesteGrande =  { 31_250_000, 62_500_000, 125_000_000, 250_000_000, 500_000_000 };
@@ -7,8 +9,8 @@ public class App {
     static Random aleatorio = new Random();
     static long operacoes;
     static double nanoToMilli = 1.0/1_000_000;
+    static Scanner teclado = new Scanner(System.in);
     
-
     /**
      * Gerador de vetores aleatórios de tamanho pré-definido. 
      * @param tamanho Tamanho do vetor a ser criado.
@@ -35,8 +37,34 @@ public class App {
         return vetor;
     }
 
+    static void menu() {
+        System.out.println("=== MÉTODOS DE ORDENAÇÃO ===\n");
+        System.out.println("Escolha um método de ordenação");
+        System.out.println("1. Bubble Sort");
+        System.out.println("2. Insertion Sort");
+        System.out.println("3. Selection Sort");
+        System.out.println("4. Merge Sort");
+        System.out.println("0. Sair");
+    }
+
+    static <T> void executarMetodoOrdenacao(Supplier<IOrdenador<T>> metodo) {
+
+    }
 
     public static void main(String[] args) {
+        menu();
+
+        int opcao = -1;
+        opcao = teclado.nextInt();
+
+        switch(opcao) {
+            case 0 : System.exit(0); break;
+            case 1 : executarMetodoOrdenacao(BubbleSort::new); break;
+            case 2 : executarMetodoOrdenacao(InsertionSort::new); break;
+            case 3 : executarMetodoOrdenacao(SelectionSort::new); break;
+            case 4 : executarMetodoOrdenacao(MergeSort::new); break;
+        }
+
         int tam = 20;
         Integer[] vetor = gerarVetorObjetos(tam);
 
