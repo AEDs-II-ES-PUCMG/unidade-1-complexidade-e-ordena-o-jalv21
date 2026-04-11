@@ -95,8 +95,8 @@ public class AppOficina {
 
     static int exibirMenuComparadores() {
         cabecalho();
-        System.out.println("1 - Padrão");
-        System.out.println("2 - Por código");
+        System.out.println("1 - Por código");
+        System.out.println("2 - Por descrição");
         
         return lerNumero("Digite sua opção", Integer.class);
     }
@@ -166,7 +166,7 @@ public class AppOficina {
         
         switch(opcao) {
             case 1 -> ordenador = new Bubblesort<>();
-            case 2 -> ordenador = new InsertionSort<>();
+            case 2 -> ordenador = new InsertSort<>();
             case 3 -> ordenador = new SelectionSort<>();
             case 4 -> ordenador = new Mergesort<>();
             default -> ordenador = null;

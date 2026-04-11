@@ -42,6 +42,11 @@ public class SelectionSort<T extends Comparable<T>> implements IOrdenador<T> {
     
     @Override
     public T[] ordenar(T[] dados) {
+        return ordenar(dados, T::compareTo);
+    }
+
+    @Override
+    public T[] ordenar(T[] dados, Comparator<T> comparador) {
         T[] dadosOrdenados = Arrays.copyOf(dados, dados.length);
         int tamanho = dadosOrdenados.length;
         iniciar();
@@ -58,12 +63,6 @@ public class SelectionSort<T extends Comparable<T>> implements IOrdenador<T> {
         }
         terminar();
         return dadosOrdenados;
-    }
-
-    @Override
-    public T[] ordenar(T[] dados, Comparator<T> comparador) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'ordenar'");
     }
 
 }
