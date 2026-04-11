@@ -135,6 +135,10 @@ public abstract class Produto implements Comparable<Produto> {
             return false;
         }
     }
+
+    public String getDescricao() {
+        return descricao;
+    }
     /**
      * Cria um produto a partir de uma linha de dados em formato texto. A linha de dados deve estar de acordo com a formatação
      * "tipo; descrição;preçoDeCusto;margemDeLucro;[dataDeValidade]"

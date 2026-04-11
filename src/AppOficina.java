@@ -101,7 +101,6 @@ public class AppOficina {
         return lerNumero("Digite sua opção", Integer.class);
     }
 
-    // #endregion
     static Produto[] carregarProdutos(String nomeArquivo){
         Scanner dados;
         Produto[] dadosCarregados;
@@ -164,8 +163,14 @@ public class AppOficina {
         cabecalho();
         
         int opcao = exibirMenuOrdenadores();
-        //Complete com a sua lógica
-        ordenador = null;
+        
+        switch(opcao) {
+            case 1 -> ordenador = new Bubblesort<>();
+            case 2 -> ordenador = new InsertionSort<>();
+            case 3 -> ordenador = new SelectionSort<>();
+            case 4 -> ordenador = new Mergesort<>();
+            default -> ordenador = null;
+        }
     }
 
     static void embaralharProdutos(){
