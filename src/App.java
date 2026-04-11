@@ -47,8 +47,21 @@ public class App {
         System.out.println("0. Sair");
     }
 
-    static <T> void executarMetodoOrdenacao(Supplier<IOrdenador<T>> metodo) {
-
+    static <T> void executarMetodoOrdenacao(IOrdenador<T> metodo) {
+            int tam = 20;
+            Integer[] vetor = gerarVetorObjetos(tam);
+    
+            IOrdenador<Integer> ordenador = metodo;
+    
+            ordenador.ordenar(vetor);
+    
+            System.out.println("\nVetor ordenado:");
+            for(Integer i : vetor) {
+                System.out.print(i + " ");
+            }
+            System.out.println("\nComparações: " + ordenador.getComparacoes());
+            System.out.println("Movimentações: " + ordenador.getMovimentacoes());
+            System.out.println("Tempo de ordenação (ms): " + ordenador.getTempoOrdenacao());
     }
 
     public static void main(String[] args) {
@@ -59,10 +72,10 @@ public class App {
 
         switch(opcao) {
             case 0 : System.exit(0); break;
-            case 1 : executarMetodoOrdenacao(BubbleSort::new); break;
-            case 2 : executarMetodoOrdenacao(InsertionSort::new); break;
-            case 3 : executarMetodoOrdenacao(SelectionSort::new); break;
-            case 4 : executarMetodoOrdenacao(MergeSort::new); break;
+            case 1 : executarMetodoOrdenacao(new BubbleSort<Integer>()); break;
+            case 2 : executarMetodoOrdenacao(new InsertionSort<Integer>()); break;
+            case 3 : executarMetodoOrdenacao(new SelectionSort<Integer>()); break;
+            case 4 : executarMetodoOrdenacao(new MergeSort<Integer>()); break;
         }
 
         int tam = 20;

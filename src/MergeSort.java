@@ -2,7 +2,8 @@ public class MergeSort<T extends Comparable<T>> implements IOrdenador<T> {
 
     @Override
     public T[] ordenar(T[] dados) {
-        
+        mergesort(dados, 0, dados.length - 1);
+        return dados;
     }
 
     public void mergesort(T[] array, int esq, int dir) {
@@ -22,14 +23,16 @@ public class MergeSort<T extends Comparable<T>> implements IOrdenador<T> {
     /// (i++ ou j++)
     /// 4) Repita 2 e 3 até chegar no final de um dos vetores. (i == v1.length ou j == v2.length)
     /// 5) Insira os elementos do vetor restante ao final do vetor resultante (mantenha a ordem)
-    public void merge(int[] array, int esq, int meio, int dir) {
+    public void merge(T[] array, int esq, int meio, int dir) {
         int n1, n2, i, j, k;
 
         n1 = meio - esq + 1;
         n2 = dir - meio;
 
-        int[] a1 = new int[n1];
-        int[] a2 = new int[n2];
+        @SuppressWarnings("unchecked")
+        T[] a1 = (T[]) new Comparable[n1];
+        @SuppressWarnings("unchecked")
+        T[] a2 = (T[]) new Comparable[n2];
 
         // Inicializar primeiro subarray
         for(i = 0; i < n1; i++)
@@ -41,7 +44,7 @@ public class MergeSort<T extends Comparable<T>> implements IOrdenador<T> {
 
         // Intecalação
         for(i = j = 0, k = esq; (i < n1 && j < n2); k++) {
-            if(a1[i] <= a2[j])
+            if(a1[i].compareTo(a2[j]) <= 0)
                 array[k] = a1[i++];
             else
                 array[k] = a2[j++];
