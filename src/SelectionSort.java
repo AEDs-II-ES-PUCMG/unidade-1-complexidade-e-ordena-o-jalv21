@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Comparator;
 
 public class SelectionSort<T extends Comparable<T>> implements IOrdenador<T> {
     private long comparacoes;
@@ -57,6 +58,12 @@ public class SelectionSort<T extends Comparable<T>> implements IOrdenador<T> {
         }
         terminar();
         return dadosOrdenados;
+    }
+
+    @Override
+    public T[] ordenar(T[] dados, Comparator<T> comparador) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'ordenar'");
     }
 
 }
