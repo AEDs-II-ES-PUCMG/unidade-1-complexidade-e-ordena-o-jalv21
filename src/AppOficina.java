@@ -1,9 +1,9 @@
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.Scanner;
 
 /**
@@ -39,6 +39,7 @@ public class AppOficina {
     static String nomeArquivoDados = "produtos.txt";
     static IOrdenador<Produto> ordenador;
 
+    // #region utilidades
     static Scanner teclado;
 
     
@@ -96,12 +97,13 @@ public class AppOficina {
 
     static int exibirMenuComparadores() {
         cabecalho();
-        System.out.println("1 - Por código");
-        System.out.println("2 - Por descrição");
+        System.out.println("1 - Padrão");
+        System.out.println("2 - Por código");
         
         return lerNumero("Digite sua opção", Integer.class);
     }
 
+    // #endregion
     static Produto[] carregarProdutos(String nomeArquivo){
         Scanner dados;
         Produto[] dadosCarregados;
@@ -162,26 +164,10 @@ public class AppOficina {
 
     static void ordenarProdutos(){
         cabecalho();
-        Comparator<Produto> comparador;
         
-        int indiceComparador = exibirMenuComparadores();
-
-        switch(indiceComparador) {
-            case 1 -> comparador = ComparadorPorCodigo::compare;
-            case 2 -> comparador = ComparadorPorDescricao::compare;
-            default -> comparador = null;
-        }
-        
-        int indiceOrdenacao = exibirMenuOrdenadores();
-        switch(indiceOrdenacao) {
-            case 1 -> ordenador = new Bubblesort<>();
-            case 2 -> ordenador = new InsertSort<>();
-            case 3 -> ordenador = new SelectionSort<>();
-            case 4 -> ordenador = new Mergesort<>();
-            default -> ordenador = null;
-        }
-
-        
+        int opcao = exibirMenuOrdenadores();
+        //Complete com a sua lógica
+        ordenador = null;
     }
 
     static void embaralharProdutos(){

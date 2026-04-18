@@ -55,6 +55,10 @@ public abstract class Produto implements Comparable<Produto> {
 
     }
 
+    public String getDescricao() {
+        return descricao;
+    }
+
     /**
      * Construtor completo. Os valores default em caso de erro são:
      * "Produto sem descrição", R$0.01, 1 unidade, 0 unidades 
@@ -134,10 +138,6 @@ public abstract class Produto implements Comparable<Produto> {
         }catch (ClassCastException ex){
             return false;
         }
-    }
-
-    public String getDescricao() {
-        return descricao;
     }
     /**
      * Cria um produto a partir de uma linha de dados em formato texto. A linha de dados deve estar de acordo com a formatação
