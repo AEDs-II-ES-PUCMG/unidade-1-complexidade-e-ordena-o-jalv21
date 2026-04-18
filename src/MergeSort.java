@@ -15,11 +15,12 @@ public class Mergesort<T extends Comparable<T>> implements IOrdenador<T>{
         public Mergesort() {
             comparacoes = 0;
             movimentacoes = 0;
+            comparador = T::compareTo;
         }
          
         @Override
         public T[] ordenar(T[] dados) {    
-            return ordenar(dados, T::compareTo);
+            return ordenar(dados, comparador);
         }
 
         @Override
@@ -84,7 +85,12 @@ public class Mergesort<T extends Comparable<T>> implements IOrdenador<T>{
         }
         
         public double getTempoOrdenacao() {
-            return 0;
+            return Duration.between(termino, inicio).toMillis();
+        }
+
+        @Override
+        public void setComparador(Comparator<T> comparador) {
+            this.comparador = comparador;
         }
 
 }

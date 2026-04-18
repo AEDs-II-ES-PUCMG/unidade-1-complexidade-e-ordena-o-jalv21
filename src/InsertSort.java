@@ -10,15 +10,17 @@ public class InsertSort<T extends Comparable<T>> implements IOrdenador<T>{
 	private long movimentacoes;
 	private LocalDateTime inicio;
 	private LocalDateTime termino;	
+	private Comparator<T> comparador;
 	
 	public InsertSort() {
 		comparacoes = 0;
 		movimentacoes = 0;
+		comparador = T::compareTo;
 	}
 	
 	@Override
 	public T[] ordenar(T[] dados) {
-		return ordenar(dados, T::compareTo);
+		return ordenar(dados, comparador);
 	}
 
 	@Override
@@ -65,7 +67,8 @@ public class InsertSort<T extends Comparable<T>> implements IOrdenador<T>{
 	    return  Duration.between(inicio, termino).toMillis();
 	}
 
-	
-
-	
+	@Override
+	public void setComparador(Comparator<T> comparador) {
+		this.comparador = comparador;
+	}
 }
