@@ -1,9 +1,9 @@
 import java.util.Comparator;
 
-public class ComparadorPorCodigo implements Comparator<Produto>{
+public class ComparadorPorCodigo<T> implements Comparator<T>{
 
     @Override
-    public int compare(Produto o1, Produto o2) {
+    public int compare(T o1, T o2) {
         return o1.hashCode() - o2.hashCode();
     }
     
