@@ -166,8 +166,18 @@ public class AppOficina {
         cabecalho();
         
         int opcao = exibirMenuOrdenadores();
-        //Complete com a sua lógica
-        ordenador = null;
+        IOrdenador<Produto> ordenador;
+
+        switch(opcao) {
+            case 1: ordenador = new BubbleSort<>(); break;
+            case 2: ordenador = new InsertSort<>(); break;
+            case 3: ordenador = new SelectionSort<>(); break;
+            case 4: ordenador = new Mergesort<>(); break;
+            case 0: return;
+            default: throw new IllegalArgumentException("Opção inválida.");
+        }
+        
+        ordenador.ordenar(produtos);
     }
 
     static void embaralharProdutos(){
