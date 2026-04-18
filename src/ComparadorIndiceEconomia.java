@@ -6,10 +6,11 @@ import java.util.Comparator;
  * Desempate 1: Valor Final do Pedido (crescente).
  * Desempate 2: Código Identificador do pedido (crescente).
  */
-public class ComparadorCriterioC implements Comparator<Pedido> {
+public class ComparadorIndiceEconomia implements Comparator<Pedido> {
 
     @Override
     public int compare(Pedido o1, Pedido o2) {
-        //Sua lógica de comparação aqui
+        // ordem decrescente
+        return (int) (o2.indiceEconomia() - o1.indiceEconomia());
     }
 }

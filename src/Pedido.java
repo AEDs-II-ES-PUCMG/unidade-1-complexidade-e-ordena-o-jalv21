@@ -100,6 +100,7 @@ public class Pedido implements Comparable<Pedido>{
      */
     public double indiceEconomia() {
         //Sua lógica de cálculo do índice de economia aqui
+		return ();
     }
 
 	/**
