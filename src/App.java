@@ -287,10 +287,10 @@ public class App {
         }
 
         if (ordenador != null) {
-            /* opcao = exibirMenuComparadores();
+            opcao = exibirMenuComparadores();
             switch (opcao) {
                 case 1:
-                    ordenador.setComparador(new ComparadorPorCodigo());
+                    ordenador.setComparador(new ComparadorCriterioA());
                     pedidosCadastrados = ordenador.ordenar(pedidosCadastrados);
                     break;
                 case 2:
@@ -303,7 +303,7 @@ public class App {
                     break;
                 default:
                     pedidosCadastrados = ordenador.ordenar(pedidosCadastrados);
-            } */
+            }
 
             System.out.println("Tempo gasto com a ordenação dos pedidos: " + ordenador.getTempoOrdenacao() + " ms.");
         }
